@@ -18,8 +18,10 @@ setTimeout(() => {
                 registrarMascota();
                 break;
             case "3":
+                listaMascotas();
                 break;
             case "4":
+                mascotaNombre()
                 break;
             case "5":
                 break;
@@ -82,5 +84,16 @@ function registrarMascota() {
         mascotas.push(mascota);
         idMascota++;
         alert("Se registró la mascota exitosamente")
+    }
+}
+
+function listaMascotas(){console.table(mascotas)}
+
+function mascotaNombre(){
+    let nombre = prompt("Ingrese el nombre de su mascota");
+    let mascotaExiste = mascotas.find(mascota=>mascota.nombre === nombre);
+    let index = mascotas.indexOf(mascotaExiste);
+    if (!mascotaExiste){alert("La mascota no existe");return}else{
+        for (let clave in mascotas[index]){console.log(clave+":"+mascotas[index][clave])}
     }
 }
